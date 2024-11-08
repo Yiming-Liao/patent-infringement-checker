@@ -1,5 +1,5 @@
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
@@ -8,10 +8,10 @@ generator client {
 }
 
 model AnalysisReport {
-  analysis_id                Int      @id @default(autoincrement())
-  patent_id                  String  
-  company_name               String  
-  analysis_date              DateTime @default(now())
-  top_infringing_products     Json    
-  overall_risk_assessment     String  
+  analysis_id             Int      @id @default(autoincrement())
+  patent_id               String
+  company_name            String
+  analysis_date           DateTime @default(now())
+  top_infringing_products Json
+  overall_risk_assessment String   @db.Text
 }
