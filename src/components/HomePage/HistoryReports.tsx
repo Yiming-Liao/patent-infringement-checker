@@ -6,7 +6,7 @@ import useAnalysisReportDestroy from "@/hooks/analysisReport/useAnalysisReportDe
 import Link from "next/link";
 
 const HistoryReports = () => {
-  const { analysisReportIndex } = useAnalysisReportIndex();
+  const { analysisReportIndex, isLoading } = useAnalysisReportIndex();
   const { analysisReportDestroy } = useAnalysisReportDestroy();
 
   const [analysisReports, setAnalysisReports] = useState<AnalysisReport[]>([]);
@@ -80,9 +80,13 @@ const HistoryReports = () => {
               </div>
             </Link>
           ))
-        ) : (
+        ) : isLoading ? (
           <div className="h-[400px] flex justify-center items-center">
             <div className="size-12 border-4 border-gray-300/60 animate-spin shadow-2xl"></div>
+          </div>
+        ) : (
+          <div className="w-full flex justify-center text-gray-500">
+            No previous reports.
           </div>
         )}
       </div>
