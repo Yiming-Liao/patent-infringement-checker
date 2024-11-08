@@ -1,0 +1,17 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model AnalysisReport {
+  analysis_id                Int      @id @default(autoincrement())
+  patent_id                  String  
+  company_name               String  
+  analysis_date              DateTime @default(now())
+  top_infringing_products     Json    
+  overall_risk_assessment     String  
+}

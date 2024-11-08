@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgb(22, 22, 26) 0%,
+    rgb(39, 55, 71) 81.3%
+  );
+
+  @apply text-slate-100;
+}
+
+input {
+  @apply text-slate-100;
+}
